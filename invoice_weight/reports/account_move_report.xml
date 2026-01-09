@@ -3,11 +3,11 @@
         id="report_invoice_document_with_weight"
         inherit_id="account.report_invoice_document"
     >
-        <xpath expr="//table[contains(@class, 'o_main_table')]/thead/tr/th[@name='th_quantity']" position="after">
+        <xpath expr="//table[contains(@class, 'o_main_table')]/thead/tr" position="inside">
             <th class="text-right">Peso neto</th>
             <th class="text-right">Peso total</th>
         </xpath>
-        <xpath expr="//table[contains(@class, 'o_main_table')]/tbody/tr/td[@name='td_quantity']" position="after">
+        <xpath expr="//table[contains(@class, 'o_main_table')]/tbody/tr[td]" position="inside">
             <td class="text-right">
                 <span t-field="line.peso_neto" />
             </td>
