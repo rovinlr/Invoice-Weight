@@ -10,6 +10,7 @@
     "data": [
         "views/sale_order_views.xml",
         "views/account_move_views.xml",
+        "reports/account_move_report.xml",
     ],
     "installable": True,
     "application": False,
