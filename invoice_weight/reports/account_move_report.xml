@@ -7,7 +7,7 @@
             <th class="text-right">Peso neto</th>
             <th class="text-right">Peso total</th>
         </xpath>
-        <xpath expr="//table[contains(@class, 'o_main_table')]/tbody/tr[td]" position="inside">
+        <xpath expr="//table[contains(@class, 'o_main_table')]/tbody/tr/td[.//span[@t-field='line.quantity']]" position="after">
             <td class="text-right">
                 <span t-field="line.peso_neto" />
             </td>
