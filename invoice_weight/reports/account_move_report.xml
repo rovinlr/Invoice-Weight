@@ -1,0 +1,30 @@
+<odoo>
+    <template
+        id="report_invoice_document_with_weight"
+        inherit_id="account.report_invoice_document"
+    >
+        <xpath expr="(//table[contains(@class, 'o_main_table')]//th[@name='th_quantity'] | //table[contains(@class, 'o_main_table')]//th[.//span[@t-field='line.quantity']])[1]" position="after">
+            <th class="text-right">Peso neto</th>
+            <th class="text-right">Peso total</th>
+        </xpath>
+        <xpath expr="//table[contains(@class, 'o_main_table')]//span[@t-field='line.quantity']/ancestor::td[1]" position="after">
+            <td class="text-right">
+                <span t-field="line.peso_neto" />
+            </td>
+            <td class="text-right">
+                <span t-field="line.peso_total" />
+            </td>
+        </xpath>
+    </template>
+
+    <record id="action_report_invoice_with_weight" model="ir.actions.report">
+        <field name="name">Factura con pesos</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">invoice_weight.report_invoice_document_with_weight</field>
+        <field name="report_file">invoice_weight.report_invoice_document_with_weight</field>
+        <field name="print_report_name">'Factura con pesos - %s' % (object.name or '')</field>
+        <field name="binding_model_id" ref="account.model_account_move" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
